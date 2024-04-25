@@ -14,5 +14,8 @@ public class App {
         int firstNum = sc.nextInt(); // 첫번째 변수를 int 값으로 저장
         System.out.println("두 번째 숫자를 입력하세요.");
         int secondNum = sc.nextInt(); // 두번째 변수를 int 값으로 저장
+        System.out.println("사칙연산 기호를 입력하세요."); // +, -, *, /
+        // sc.next 가 받은 String 타입의 문자열중 charAt(i) i번 째의 값을 char 형태로 저장 ( i는 0부터 시작 )
+        char operator = sc.next().charAt(0);
     }
 }
