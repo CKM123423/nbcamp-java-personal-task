@@ -35,12 +35,28 @@ public class App {
                 };
             }
 
+            if (count == 10){
+                resultArray[0] = 0; // 가장 처음 입력된 값을 0으로 초기화
+                // 결과값을 왼쪽으로 한칸씩 이동
+                for (int i = 0; i < resultArray.length - 1 ; i++){
+                    resultArray[i] = resultArray[i + 1];
+                }
+                count--; // if문 빠져나오기위해 카운트를 - 1
+            }
+
             resultArray[count] = result; // 계산 결과를 배열에 저장
             count = count + 1; // 총 저장된 개수 카운트
 
             System.out.println("결과 = " + result);
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             end = sc.next(); // exit 를 입력받으면 종료되며 입력받지 않으면
+
+            // 현재 저장된 배열 값 확인
+            System.out.println("현재 저장된 배열의 값들 : ");
+            for (int i = 0; i < resultArray.length; i++){
+                System.out.print(" [" + resultArray[i] + "] ");
+            }
+            System.out.println("\n현재 저장된 배열의 총 개수 : " + count);
         }
     }
 }
