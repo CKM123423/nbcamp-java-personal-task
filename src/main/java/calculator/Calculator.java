@@ -4,12 +4,14 @@ import java.util.ArrayList;
 
 public class Calculator {
 
-    // 연산 결과 저장할 리스트 선언과 생성
-    // private 로 다른 클래스들에서 정보에 접근하지 못하게 함
+    // 연산 결과 저장할 리스트 선언과 생성 private 로 다른 클래스들에서 정보에 접근하지 못하게 함
     private ArrayList<Integer> resultList = new ArrayList<>();
 
+    // 원래 자동으로 생성되던 기본 생성자를 명시화하고 생성자가 생성될때마다 새로운 ArrayList 를 만들어 그곳에 데이터를 저장
+    public Calculator() {
+        this.resultList = new ArrayList<>();
+    }
     public double calculate(int firstNum, char operator, int secondNum) throws BadInputException {
-        // 사칙연산 기호가 들어왔을때에 결과값 리턴
         int result; // 결과값을 반환하기 위한 지역변수 선언
         if (operator == '+') {
             result = firstNum + secondNum;
