@@ -32,10 +32,7 @@ public class App {
             System.out.println("현재까지 저장된 모든 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
             if (sc.next().equals("inquiry")) {
                 System.out.println("현재 저장된 배열의 값들 : ");
-                // inquiry 입력시 현재 저장된 모든 결과값을 조회 (기존의 for 문에서 forEach 문으로 변경)
-                for (Integer integer : calc.getResultList()) {
-                    System.out.print("[" + integer + "] ");
-                }
+                calc.inquiryList(); // inquiry 입력시 List 의 값들을 읽어와 프린트 해주는 메서드
             }
             // 현재 저장된 결과값의 총 개수
             System.out.println("\n현재 저장된 배열의 총 개수 : " + calc.getResultList().size());

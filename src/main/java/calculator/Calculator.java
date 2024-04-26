@@ -25,7 +25,7 @@ public class Calculator {
             result = firstNum / secondNum;
         } else {
             // 사칙연산 이외의 값이 입력 되었다면 익셉션을 발생시키고 오류문 출력
-            throw new BadInputException("입력이 잘못되었습니다. " + operator +  " 대신 사칙연산자에 해당되는 연산자를 넣어주세요. (+, -, *, /)");
+            throw new BadInputException("입력이 잘못되었습니다. " + operator + " 대신 사칙연산자에 해당되는 연산자를 넣어주세요. (+, -, *, /)");
         }
         setResultList(result); // setter 를 사용해서 리스트에 계산 결과를 저장
         return result;
@@ -44,5 +44,12 @@ public class Calculator {
     // 리스트에 처음 입력된 값을 삭제하기 위한 메서드
     public void removeResult() {
         this.resultList.removeFirst();
+    }
+
+    // 결과값이 저장된 List 를 조회해 프린트해주는 메서드
+    public void inquiryList() {
+        for (Integer integer : getResultList()) {
+            System.out.print("[" + integer + "] ");
+        }
     }
 }
