@@ -1,14 +1,14 @@
 package calculator;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
 
     public static void main(String[] args) {
-        String end = ""; // 종료문을 입력받을 변수 선언
-        int[] resultArray = new int[10]; // 결과 값을 저장할 배열 선언
-        int count = 0; // 배열에 순차적으로 저장하기 위한 변수값
-        while (!end.equals("exit")) {
+        ArrayList<Integer> resultList = new ArrayList<>(); // 결과값을 저장할 리스트 선언
+        // exit 입력창에서 exit 를 입력받을때까지 무한반복 (어디서든 exit 를 쓰면 종료되는 문제점 해결)
+        while (true) {
             Scanner sc = new Scanner(System.in);
             int result = 0; // 계산을 받을 int 선언
 
@@ -21,8 +21,8 @@ public class App {
             char operator = sc.next().charAt(0);
 
 
-            // 0으로 나눌 수 없기 때문에 0이 입력되면 오류문 출력
-            if (secondNum == 0) {
+            // 0으로 나눌 수 없기 때문에 두번째 정수에 0과 나눗셈이 입력되면 오류문 출력
+            if (secondNum == 0 && operator == '/') {
                 System.out.println("나눗셈 연산에서 분모(두번째 정수)는 0이 입력될 수 없습니다.");
                 result = firstNum; // 0으로 나눌경우 첫번째 정수값 출력
             } else {
@@ -35,28 +35,34 @@ public class App {
                 };
             }
 
-            if (count == 10){
-                resultArray[0] = 0; // 가장 처음 입력된 값을 0으로 초기화
-                // 결과값을 왼쪽으로 한칸씩 이동
-                for (int i = 0; i < resultArray.length - 1 ; i++){
-                    resultArray[i] = resultArray[i + 1];
-                }
-                count--; // if문 빠져나오기위해 카운트를 - 1
-            }
-
-            resultArray[count] = result; // 계산 결과를 배열에 저장
-            count = count + 1; // 총 저장된 개수 카운트
-
+            resultList.add(result); // 리스트에 결과 저장
             System.out.println("결과 = " + result);
-            System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
-            end = sc.next(); // exit 를 입력받으면 종료되며 입력받지 않으면
 
-            // 현재 저장된 배열 값 확인
+            System.out.println("\n현재 저장된 배열의 총 개수 : " + resultList.size());
             System.out.println("현재 저장된 배열의 값들 : ");
-            for (int i = 0; i < resultArray.length; i++){
-                System.out.print(" [" + resultArray[i] + "] ");
+            // 현재 저장된 배열 값 확인
+            for (int i = 0; i < resultList.size(); i++){
+                System.out.print("[" + resultList.get(i) + "] ");
             }
-            System.out.println("\n현재 저장된 배열의 총 개수 : " + count);
+            System.out.println("가장 먼저 저장된 결과값 : " + resultList.getFirst()); // 가장 먼저 저장된 결과값
+            System.out.println("가장 먼저 저장된 결과를 삭제하시겠습니까? (remove 입력시 삭제)");
+            if (sc.next().equals("remove")) {
+                System.out.println("가장 먼저 저장된 결과값 " + resultList.getFirst() + " 이 삭제되었습니다.");
+                resultList.removeFirst(); // 가장 처음 저장된 결과값을 삭제
+            }
+
+            System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
+            // while 문을 무한반복으로 바꾼뒤 해당 부분에서 exit 가 입력될경우 while 문 탈출
+            if (sc.next().equals("exit")) {
+                break;
+            }
+
+            System.out.println("\n현재 저장된 배열의 총 개수 : " + resultList.size());
+            System.out.println("현재 저장된 배열의 값들 : ");
+            // 현재 저장된 배열 값 확인 (삭제후)
+            for (int i = 0; i < resultList.size(); i++){
+                System.out.print("[" + resultList.get(i) + "] ");
+            }
         }
     }
 }
