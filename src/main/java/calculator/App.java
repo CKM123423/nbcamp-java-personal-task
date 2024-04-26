@@ -38,30 +38,26 @@ public class App {
             resultList.add(result); // 리스트에 결과 저장
             System.out.println("결과 = " + result);
 
-            System.out.println("\n현재 저장된 배열의 총 개수 : " + resultList.size());
-            System.out.println("현재 저장된 배열의 값들 : ");
-            // 현재 저장된 배열 값 확인
-            for (int i = 0; i < resultList.size(); i++){
-                System.out.print("[" + resultList.get(i) + "] ");
-            }
-            System.out.println("가장 먼저 저장된 결과값 : " + resultList.getFirst()); // 가장 먼저 저장된 결과값
+            System.out.println("가장 먼저 저장된 결과값 : [" + resultList.getFirst() + "] "); // 가장 먼저 저장된 결과값
             System.out.println("가장 먼저 저장된 결과를 삭제하시겠습니까? (remove 입력시 삭제)");
             if (sc.next().equals("remove")) {
-                System.out.println("가장 먼저 저장된 결과값 " + resultList.getFirst() + " 이 삭제되었습니다.");
+                System.out.println("\n가장 먼저 저장된 결과값 [" + resultList.getFirst() + "] 이 삭제되었습니다.");
                 resultList.removeFirst(); // 가장 처음 저장된 결과값을 삭제
             }
 
+            System.out.println("현재까지 저장된 모든 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+            if (sc.next().equals("inquiry")) {
+                System.out.println("현재 저장된 배열의 값들 : ");
+                // inquiry 입력시 현재 저장된 모든 결과값을 조회 (기존의 for 문에서 forEach 문으로 변경)
+                for (Integer integer : resultList) {
+                    System.out.print("[" + integer + "] ");
+                }
+            }
+            System.out.println("\n현재 저장된 배열의 총 개수 : " + resultList.size()); // 현재 저장된 결과값의 개수
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             // while 문을 무한반복으로 바꾼뒤 해당 부분에서 exit 가 입력될경우 while 문 탈출
             if (sc.next().equals("exit")) {
                 break;
-            }
-
-            System.out.println("\n현재 저장된 배열의 총 개수 : " + resultList.size());
-            System.out.println("현재 저장된 배열의 값들 : ");
-            // 현재 저장된 배열 값 확인 (삭제후)
-            for (int i = 0; i < resultList.size(); i++){
-                System.out.print("[" + resultList.get(i) + "] ");
             }
         }
     }
