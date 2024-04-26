@@ -26,7 +26,7 @@ public class App {
             System.out.println("가장 먼저 저장된 결과를 삭제하시겠습니까? (remove 입력시 삭제)");
             if (sc.next().equals("remove")) {
                 System.out.println("\n가장 먼저 저장된 결과값 [" + calc.getResultList().getFirst() + "] 이 삭제되었습니다.");
-                calc.getResultList().removeFirst(); // 가장 처음 저장된 결과값을 삭제
+                calc.removeResult(); // 가장 처음 저장된 결과값을 삭제 Calculator 에서 만든 메서드로 접근해서 수정
             }
 
             System.out.println("현재까지 저장된 모든 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");

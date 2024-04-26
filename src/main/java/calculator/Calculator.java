@@ -40,4 +40,9 @@ public class Calculator {
     public void setResultList(int result) {
         this.resultList.add(result);
     }
+
+    // 리스트에 처음 입력된 값을 삭제하기 위한 메서드
+    public void removeResult() {
+        this.resultList.removeFirst();
+    }
 }
