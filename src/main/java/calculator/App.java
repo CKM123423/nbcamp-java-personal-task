@@ -8,6 +8,7 @@ public class App {
     public static void main(String[] args) {
         ArrayList<Integer> resultList = new ArrayList<>(); // 결과값을 저장할 리스트 선언
         // exit 입력창에서 exit 를 입력받을때까지 무한반복 (어디서든 exit 를 쓰면 종료되는 문제점 해결)
+
         while (true) {
             Scanner sc = new Scanner(System.in);
             int result = 0; // 계산을 받을 int 선언
