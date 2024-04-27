@@ -1,6 +1,5 @@
 package calculator;
 
-import java.util.PrimitiveIterator;
 import java.util.Scanner;
 
 public class App {
@@ -11,7 +10,7 @@ public class App {
 
         // exit 입력창에서 exit 를 입력받을때까지 무한반복 (어디서든 exit 를 쓰면 종료되는 문제점 해결)
         while (true) {
-            System.out.println("어떤 기능을 원하십니까?");
+            System.out.println("어떤 기능을 사용 하시겠습니까?");
             System.out.println("1. 사칙연산 ('1' 을 입력해 시작하세요.)");
             System.out.println("2. 원의 넓이 계산('2' 를 입력해 시작하세요.)");
             int choice = sc.nextInt(); // 어떤 작업을 수행할지에 선택에 대한 조건으로 쓰기위해 선언
@@ -20,12 +19,13 @@ public class App {
                 System.out.println("첫 번째 숫자를 입력하세요.");
                 int firstNum = sc.nextInt(); // 첫번째 변수를 int 값으로 저장
 
-                System.out.println("두 번째 숫자를 입력하세요.");
-                int secondNum = sc.nextInt(); // 두번째 변수를 int 값으로 저장
-
                 System.out.println("사칙연산 기호를 입력하세요."); // +, -, *, /
                 // sc.next 가 받은 String 타입의 문자열중 charAt(i) i번 째의 값을 char 형태로 저장 ( i는 0부터 시작 )
                 char operator = sc.next().charAt(0);
+
+                System.out.println("두 번째 숫자를 입력하세요.");
+                int secondNum = sc.nextInt(); // 두번째 변수를 int 값으로 저장
+
 
                 System.out.println("결과 = " + calc.calculate(firstNum, operator, secondNum));
 
