@@ -8,6 +8,10 @@ public class Calculator {
     // 변수명을 바꾸고 사칙연산과 원의 넓이를 저장할 필드 각각 선언
     private ArrayList<Integer> ArithmeticList = new ArrayList<>();
     private ArrayList<Double> CircleArea = new ArrayList<>();
+    // 원의 원주율을 구하기위한 원주율값 선언
+    // final 로 선언하여 값이 절대 변하지 않도록 함
+    // 원의 넓이를 구할 때마다 무조건 쓰이는 값이라 메모리의 부담을 줄이기위해 static 으로 선언
+    private static final double PI = 3.14;
 
     // 원래 자동으로 생성되던 기본 생성자를 명시화하고 생성자가 생성될때마다 새로운 ArrayList 를 만들어 그곳에 데이터를 저장
     // 클래스가 호출될때마다 각 리스트들을 초기화
@@ -68,7 +72,7 @@ public class Calculator {
     // 원의 넓이를 계산하고 저장하는 메서드
     public double calculateCircleArea(double radius) {
         double result;
-        result =Math.PI * radius * radius; // 원의 넓이 구하는 공식
+        result = PI * radius * radius; // 원의 넓이 구하는 공식
         setCircleArea(result); // CircleArea 에 결과값 추가
         return result;
     }
@@ -91,7 +95,6 @@ public class Calculator {
         this.CircleArea.removeFirst();
     }
 
-
     // 원의 넓이
     // 원의 넓이가 저장된 CircleArea 의 데이터를 시스템에 출력
     public void inquiryCircleArea() {
@@ -99,5 +102,4 @@ public class Calculator {
             System.out.print("[" + doubles + "] ");
         }
     }
-
 }
