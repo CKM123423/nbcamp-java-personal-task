@@ -13,8 +13,8 @@ public class CircleCalculator extends Calculator {
     public CircleCalculator() {
         resultList = new ArrayList<>();
     }
-    public double calculateCircleArea(double radius) {
-        double result = PI * radius * radius;
+    public double calculateCircleArea() {
+        double result = PI * firstNum * firstNum;
         setList(result);
         return result;
     }

@@ -4,8 +4,26 @@ import java.util.ArrayList;
 
 public abstract class Calculator {
 
-    // 상속받은 자식클래스에서만 사용할 수 있도록 protected 로 선언
+    // 상속받은 자식클래스를 통해서만 접근할 수 있도록 protected 로 선언
     protected ArrayList<Double> resultList;
+    protected int firstNum;
+    protected int secondNum;
+    protected char operator;
+
+    // firstNum 에 값 넣기
+    public void setFirstNum(int firstNum) {
+        this.firstNum = firstNum;
+    }
+
+    // secondNum 에 값 넣기
+    public void setSecondNum(int secondNum) {
+        this.secondNum = secondNum;
+    }
+
+    // operator 에 값 넣기
+    public void setOperator(char operator) {
+        this.operator = operator;
+    }
 
     // getter
     public ArrayList<Double> getList() {
