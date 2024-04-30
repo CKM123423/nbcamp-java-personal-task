@@ -14,7 +14,7 @@ public class CircleCalculator extends Calculator {
         resultList = new ArrayList<>();
     }
     public double calculateCircleArea() {
-        double result = PI * firstNum * firstNum;
+        double result = PI * (double)firstNum * (double)firstNum;
         setList(result);
         return result;
     }

@@ -8,7 +8,7 @@ public class ArithmeticCalculator extends Calculator {
     private Operator operateType;
 
     public ArithmeticCalculator() {
-        this.resultList = new ArrayList<>();
+        resultList = new ArrayList<>();
     }
 
     // calculate 에서 매개변수로 enum 클래스의 타입을 받아와 받아온 값에 따라 적절한 인스턴스화를 구현
@@ -23,7 +23,8 @@ public class ArithmeticCalculator extends Calculator {
             case Divide -> operateType = new DivideOperator();
             case Mod -> operateType = new ModOperator();
         }
-        double result = operateType.operate(firstNum, secondNum);
+        // 원시타입인 제네릭의 값을 실수값으로 변환해서 계산
+        double result = operateType.operate(firstNum.doubleValue(), secondNum.doubleValue());
         setList(result);
         return result;
     }

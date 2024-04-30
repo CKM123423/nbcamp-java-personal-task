@@ -4,7 +4,7 @@ package calculator;
 public class AddOperator implements Operator {
     // 인터페이스의 내용을 정의
     @Override
-    public double operate(int firstNum, int secondNum) {
+    public double operate(double firstNum, double secondNum) {
         return firstNum + secondNum;
     }
 }
