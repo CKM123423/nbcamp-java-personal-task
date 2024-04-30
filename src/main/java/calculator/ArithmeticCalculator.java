@@ -26,6 +26,7 @@ public class ArithmeticCalculator extends Calculator {
         // 원시타입인 제네릭의 값을 실수값으로 변환해서 계산
         double result = operateType.operate(firstNum.doubleValue(), secondNum.doubleValue());
         setList(result);
+        highNum(result); // 결과값보다 큰수를 출력해주는 메서드 실행
         return result;
     }
 }

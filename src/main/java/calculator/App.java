@@ -28,8 +28,9 @@ public class App {
                 arithmetic.setSecondNum(sc.nextDouble()); // Calculator 의 필드에 값저장
 
                 // 부모 클래스 필드에 저장된 arithmetic operator 의 값을 OperatorType 에 보내서 값을 받고 그 매개변수로 메서드 작동
-                System.out.println("결과 = "+ arithmetic.calculate(OperatorType.setOperator(arithmetic.operator)));
+                System.out.println("\n결과 = "+ arithmetic.calculate(OperatorType.setOperator(arithmetic.operator)));
                 arithmetic.getFirst();// 첫번째 결과 출력
+//                arithmetic.highNum();
 
                 System.out.println("가장 먼저 저장된 결과를 삭제하시겠습니까? (remove 입력시 삭제)");
                 if (sc.next().equals("remove")) {
@@ -48,7 +49,7 @@ public class App {
                 // 새로운 CircleArea 리스트를 만들어서 사칙연산과 따로따로 저장되도록 구현
                 System.out.println("원의 반지름을 입력해주세요");
                 circle.setFirstNum(sc.nextDouble()); // Calculator 의 필드에 값저장
-                System.out.println("결과 = " + circle.calculateCircleArea());
+                System.out.println("\n결과 = " + circle.calculateCircleArea());
                 circle.getFirst(); // 결과값 조회
                 System.out.println("가장 먼저 저장된 결과를 삭제하시겠습니까? (remove 입력시 삭제)");
                 if (sc.next().equals("remove")) {

@@ -16,6 +16,7 @@ public class CircleCalculator extends Calculator {
     public double calculateCircleArea() {
         double result = PI * (double)firstNum * (double)firstNum;
         setList(result);
+        highNum(result); // 현재 결과보다 큰값들 출력
         return result;
     }
 }

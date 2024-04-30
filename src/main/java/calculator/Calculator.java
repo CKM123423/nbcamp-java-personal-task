@@ -58,4 +58,14 @@ public abstract class Calculator<T extends Number> {
     public void listSize() {
         System.out.println("\n현재 저장된 배열의 총 개수 : " + getList().size());
     }
+
+    // 가장 최근에 계산된 값보다 높은 값들 전부 출력
+    public void highNum(double num) {
+        // 가장 최근에 계산된 값을 변수에 저장
+        double compare = num;
+        System.out.println("현재 결과보다 큰 값들 :");
+        resultList.stream()
+                .filter(list -> list > compare) // result 보다 큰 값들만 필터링
+                .forEach(printList -> System.out.print("[" + printList + "] "));// 필터된 값들을 순회하면서 값들을 출력
+    }
 }
